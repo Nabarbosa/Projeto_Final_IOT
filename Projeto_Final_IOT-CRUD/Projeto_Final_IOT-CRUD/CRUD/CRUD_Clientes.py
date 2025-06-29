@@ -1,3 +1,7 @@
+# Importações necessárias
+from CRUD_Endereço import create_endereco
+from CRUD_Contatos import create_contato
+
 # Função para gerar o próximo ID automaticamente
 def gerar_proximo_id():
     try:
@@ -98,9 +102,27 @@ def menu():
             cpf = input("CPF: ")
             cnpj = input("CNPJ: ")
             observacoes = input("Observações: ")
-            endereco = input("Endereço: ")  # Importa enum
-            contato = input("Contato: ")  # Importa enum
+
+            print("\n--- Cadastro de Endereço ---")
+            logradouro = input("Logradouro: ")
+            numero = input("Número: ")
+            bairro = input("Bairro: ")
+            cep = input("CEP: ")
+            cidade = input("Cidade: ")
+            uf = input("UF: ")
+            complemento = input("Complemento: ")
+            create_endereco(logradouro, numero, bairro, cep, cidade, uf, complemento)
+            endereco = f"{logradouro}, {numero}, {bairro}, {cep}, {cidade}, {uf}, {complemento}"
+
+            print("\n--- Cadastro de Contato ---")
+            telefone = input("Telefone: ")
+            email = input("E-mail: ")
+            celular = input("Celular: ")
+            create_contato(telefone, email, celular)
+            contato = f"{telefone}, {email}, {celular}"
+
             create_cliente(tipo, nome, cpf, cnpj, observacoes, endereco, contato)
+
         elif opcao == "2":
             id_cliente = input("ID do Cliente a ser atualizado: ")
             tipo = input("Novo Tipo: ")
@@ -108,9 +130,27 @@ def menu():
             cpf = input("Novo CPF: ")
             cnpj = input("Novo CNPJ: ")
             observacoes = input("Novas Observações: ")
-            endereco = input("Novo Endereço: ")  # Importa enum
-            contato = input("Novo Contato: ")  # Importa enum
+
+            print("\n--- Atualização de Endereço ---")
+            logradouro = input("Novo Logradouro: ")
+            numero = input("Novo Número: ")
+            bairro = input("Novo Bairro: ")
+            cep = input("Novo CEP: ")
+            cidade = input("Nova Cidade: ")
+            uf = input("Nova UF: ")
+            complemento = input("Novo Complemento: ")
+            create_endereco(logradouro, numero, bairro, cep, cidade, uf, complemento)
+            endereco = f"{logradouro}, {numero}, {bairro}, {cep}, {cidade}, {uf}, {complemento}"
+
+            print("\n--- Atualização de Contato ---")
+            telefone = input("Novo Telefone: ")
+            email = input("Novo E-mail: ")
+            celular = input("Novo Celular: ")
+            create_contato(telefone, email, celular)
+            contato = f"{telefone}, {email}, {celular}"
+
             update_cliente(id_cliente, tipo, nome, cpf, cnpj, observacoes, endereco, contato)
+
         elif opcao == "3":
             id_cliente = input("ID do Cliente a ser deletado: ")
             delete_cliente(id_cliente)
