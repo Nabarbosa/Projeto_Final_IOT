@@ -1,3 +1,8 @@
+# Importações necessárias
+from CRUD_Endereço import create_endereco
+from CRUD_Contatos import create_contato
+from CRUD_Produtos import create_produto
+
 # Função para gerar o próximo ID automaticamente
 def gerar_proximo_id():
     try:
@@ -97,20 +102,83 @@ def menu():
             razao_social = input("Razão Social: ")
             nome_fantasia = input("Nome Fantasia: ")
             area_atuacao = input("Área de Atuação: ")
-            endereco = input("Endereço: ")  # Importa enum
-            contato = input("Contato: ")  # Importa enum
-            produto = input("Produto: ")  # Importa enum
+
+            print("\n--- Cadastro de Endereço ---")
+            logradouro = input("Logradouro: ")
+            numero = input("Número: ")
+            bairro = input("Bairro: ")
+            cep = input("CEP: ")
+            cidade = input("Cidade: ")
+            uf = input("UF: ")
+            complemento = input("Complemento: ")
+            create_endereco(logradouro, numero, bairro, cep, cidade, uf, complemento)
+            endereco = f"{logradouro}, {numero}, {bairro}, {cep}, {cidade}, {uf}, {complemento}"
+
+            print("\n--- Cadastro de Contato ---")
+            telefone = input("Telefone: ")
+            email = input("E-mail: ")
+            celular = input("Celular: ")
+            create_contato(telefone, email, celular)
+            contato = f"{telefone}, {email}, {celular}"
+
+            print("\n--- Cadastro de Produto ---")
+
+            descricao = input("Descrição do Produto: ")
+            tipo = input("Tipo do Produto: ")
+            try:
+                quantidade = int(input("Quantidade: "))
+            except ValueError:
+                print("Quantidade deve ser um número inteiro.")
+                return
+            validade = input("Validade (DD/MM/AAAA): ")
+            observacoes = input("Observações: ")
+            create_produto(descricao, tipo, quantidade, validade, observacoes)
+            produto = f"{descricao}, {tipo}, {quantidade}, {validade}, {observacoes}"
+
             create_fornecedor(cnpj, razao_social, nome_fantasia, area_atuacao, endereco, contato, produto)
+
         elif opcao == "2":
             id_fornecedor = input("ID do Fornecedor a ser atualizado: ")
             cnpj = input("Novo CNPJ: ")
             razao_social = input("Nova Razão Social: ")
             nome_fantasia = input("Novo Nome Fantasia: ")
             area_atuacao = input("Nova Área de Atuação: ")
-            endereco = input("Novo Endereço: ")  # Importa enum
-            contato = input("Novo Contato: ")  # Importa enum
-            produto = input("Novo Produto: ")  # Importa enum
+
+            print("\n--- Atualização de Endereço ---")
+            logradouro = input("Novo Logradouro: ")
+
+            numero = input("Novo Número: ")
+            bairro = input("Novo Bairro: ")
+            cep = input("Novo CEP: ")
+            cidade = input("Nova Cidade: ")
+            uf = input("Nova UF: ")
+            complemento = input("Novo Complemento: ")
+            create_endereco(logradouro, numero, bairro, cep, cidade, uf, complemento)
+            endereco = f"{logradouro}, {numero}, {bairro}, {cep}, {cidade}, {uf}, {complemento}"
+
+            print("\n--- Atualização de Contato ---")
+            telefone = input("Novo Telefone: ")
+            email = input("Novo E-mail: ")
+            celular = input("Novo Celular: ")
+            create_contato(telefone, email, celular)
+            contato = f"{telefone}, {email}, {celular}"
+
+            print("\n--- Atualização de Produto ---")
+            descricao = input("Nova Descrição do Produto: ")
+            tipo = input("Novo Tipo do Produto: ")
+            try:
+                quantidade = int(input("Nova Quantidade: "))
+            except ValueError:
+                print("Quantidade deve ser um número inteiro.")
+                return
+            validade = input("Nova Validade (DD/MM/AAAA): ")
+            observacoes = input("Novas Observações: ")
+            create_produto(descricao, tipo, quantidade, validade, observacoes)
+            produto = f"{descricao}, {tipo}, {quantidade}, {validade}, {observacoes}"
+
+
             update_fornecedor(id_fornecedor, cnpj, razao_social, nome_fantasia, area_atuacao, endereco, contato, produto)
+
         elif opcao == "3":
             id_fornecedor = input("ID do Fornecedor a ser deletado: ")
             delete_fornecedor(id_fornecedor)
