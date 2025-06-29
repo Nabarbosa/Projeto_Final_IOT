@@ -10,6 +10,8 @@ def gerar_proximo_id():
     except FileNotFoundError:
         return 1  # Retorna 1 se o arquivo não existir
 
+from datetime import datetime
+
 # CREATE - Criar
 def create_produto(descricao, tipo, quantidade, validade, observacoes):
     id_produto = gerar_proximo_id()  # Gera o próximo ID automaticamente
@@ -79,6 +81,15 @@ def search_produto(id_produto):
     except FileNotFoundError:
         print("Arquivo não encontrado. Nenhum produto cadastrado.")
 
+# Função para ler data de validade
+def input_date(msg):
+    while True:
+        valor = input(msg)
+        try:
+            return datetime.strptime(valor, "%d/%m/%Y").date()
+        except ValueError:
+            print("Data inválida. Use o formato DD/MM/AAAA.")
+
 # Menu para interagir com o CRUD
 def menu():
     while True:
@@ -93,16 +104,24 @@ def menu():
         if opcao == "1":
             descricao = input("Descrição: ")
             tipo = input("Tipo: ")
-            quantidade = input("Quantidade: ")
-            validade = input("Validade (DD/MM/AAAA): ")
+            try:
+                quantidade = int(input("Quantidade: "))
+            except ValueError:
+                print("Quantidade deve ser um número inteiro.")
+                continue
+            validade = input_date("Validade (DD/MM/AAAA): ")
             observacoes = input("Observações: ")
             create_produto(descricao, tipo, quantidade, validade, observacoes)
         elif opcao == "2":
             id_produto = input("ID do Produto a ser atualizado: ")
             descricao = input("Nova Descrição: ")
             tipo = input("Novo Tipo: ")
-            quantidade = input("Nova Quantidade: ")
-            validade = input("Nova Validade (DD/MM/AAAA): ")
+            try:
+                quantidade = int(input("Nova Quantidade: "))
+            except ValueError:
+                print("Quantidade deve ser um número inteiro.")
+                continue
+            validade = input_date("Nova Validade (DD/MM/AAAA): ")
             observacoes = input("Novas Observações: ")
             update_produto(id_produto, descricao, tipo, quantidade, validade, observacoes)
         elif opcao == "3":
