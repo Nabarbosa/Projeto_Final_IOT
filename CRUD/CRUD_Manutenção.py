@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: CRUD_Manutenção.py
+Equipe: Clara, Rayanne e Tainá
+Turma: G91164
+Semestre: 2025.1
+"""
+
 # Importações necessárias
 from CRUD_Caminhões import search_caminhao
 from CRUD_Funcionários import search_funcionario
