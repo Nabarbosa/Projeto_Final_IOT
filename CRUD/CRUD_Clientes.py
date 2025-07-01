@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: CRUD_Clientes.py
+Equipe: Clara, Rayanne e Tainá
+Turma: G91164
+Semestre: 2025.1
+"""
+
 # Importações necessárias
 from CRUD_Endereço import create_endereco
 from CRUD_Contatos import create_contato
