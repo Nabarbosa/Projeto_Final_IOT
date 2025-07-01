@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: telas_lampada.py
+Equipe: Clara, Rayanne e Tainá 
+Turma: G91164
+Semestre: 2025.11
+
+"""
 import tkinter as tk
 from tkinter import messagebox, Frame, Label, Button, Entry, StringVar
 import serial
