@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: CRUD_Produtos.py
+Equipe: Clara, Rayanne e Tainá
+Turma: G91164
+Semestre: 2025.1
+"""
+
 # Função para gerar o próximo ID automaticamente
 def gerar_proximo_id():
     try:
