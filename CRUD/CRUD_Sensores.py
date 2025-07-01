@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: CRUD_Sensores.py
+Equipe: Clara, Rayanne e Tainá
+Turma: G91164
+Semestre: 2025.1
+"""
+
 # CRUD em arquivos de texto para gerenciar sensores com informações completas
 
 # Função para gerar o próximo ID automaticamente
