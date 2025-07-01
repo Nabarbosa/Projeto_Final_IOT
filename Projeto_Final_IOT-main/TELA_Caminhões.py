@@ -1,4 +1,4 @@
-# Nome do arquivo:
+# Nome do arquivo: TELA_Caminhões.py
 # Equipe: Clara, Rayanne e Tainá 
 # Turma: G91164
 # Semestre: 2025.1
