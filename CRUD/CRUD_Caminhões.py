@@ -1,5 +1,5 @@
 """
-Nome do arquivo: CRUD_Caminhões
+Nome do arquivo: CRUD_Caminhões.py
 Equipe: Clara, Rayanne e Tainá
 Turma: G91164
 Semestre: 2025.1
