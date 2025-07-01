@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: TELA_Principal.py
+Equipe: Clara, Rayanne e Tainá 
+Turma: G91164
+Semestre: 2025.11
+
+"""
 from tkinter import *
 import tkinter.messagebox as messagebox 
 import tkinter as tk

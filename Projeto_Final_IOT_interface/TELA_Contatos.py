@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: TELA_Contatos.py
+Equipe: Clara, Rayanne e Tainá 
+Turma: G91164
+Semestre: 2025.11
+
+"""
 from tkinter import *
 import tkinter as tk
 from tkinter import PhotoImage
