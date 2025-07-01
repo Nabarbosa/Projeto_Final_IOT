@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: CRUD_Caminhões
+Equipe: Clara, Rayanne e Tainá
+Turma: G91164
+Semestre: 2025.1
+"""
+
 # CRUD em arquivos de texto para gerenciar caminhões com informações completas
 
 # Função para gerar o próximo ID automaticamente
