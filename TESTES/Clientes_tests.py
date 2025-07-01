@@ -1,3 +1,10 @@
+"""
+Nome do arquivo: Clientes_tests.py
+Equipe: Clara, Rayanne e Tainá
+Turma: G91164
+Semestre: 2025.1
+"""
+
 import CRUD_Clientes
 
 def menu():
