@@ -1,8 +1,3 @@
-# Nome do arquivo:
-# Equipe: Clara, Rayanne e Tainá 
-# Turma: G91164
-# Semestre: 2025.1
-
 from tkinter import *
 from tkinter import PhotoImage
 

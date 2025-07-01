@@ -1,9 +1,5 @@
-# Nome do arquivo:
-# Equipe: Clara, Rayanne e Tainá 
-# Turma: G91164
-# Semestre: 2025.1
-
 from tkinter import *
+import tkinter as tk
 from tkinter import PhotoImage
 
 menu_inicial = Tk()
@@ -14,7 +10,7 @@ menu_inicial['bg'] = "white"
 icon = PhotoImage(file="contato.png") 
 menu_inicial.iconphoto(False, icon)
 
-Label(menu_inicial, text="Cadastro de Contatos", bg="white", font=("Arial", 16)).pack(pady=5)
+Label(menu_inicial, text="Cadastro de Contatos", bg="white", font=("Arial", 16, "bold")).pack(pady=5)
 
 Label(menu_inicial, text="Telefone:", bg="white", font=("Arial", 12, "bold")).place(x=50, y=50)
 entrada_telefone = Entry(menu_inicial, width=35)
@@ -40,8 +36,8 @@ def limpar_campos():
     entrada_celular.delete(0, END)
     entrada_email.delete(0, END)
 
-Button(menu_inicial, text="Salvar", command=pegar_dados, width=8, height=2, font=("Arial", 9, "bold")).place(x=140, y=200)
-Button(menu_inicial, text="Limpar", command=limpar_campos, width=8, height=2, font=("Arial", 9, "bold")).place(x=220, y=200)
-Button(menu_inicial, text="Sair", command=menu_inicial.quit, width=8, height=2, font=("Arial", 9, "bold")).place(x=300, y=200)
+Button(menu_inicial, text="Salvar", command=pegar_dados, width=8, height=2, relief= tk.RAISED,  font=("Arial", 9, "bold")).place(x=140, y=200)
+Button(menu_inicial, text="Limpar", command=limpar_campos, width=8, height=2, relief= tk.RAISED, font=("Arial", 9, "bold")).place(x=220, y=200)
+Button(menu_inicial, text="Sair", command=menu_inicial.quit, width=8, height=2, relief= tk.RAISED, font=("Arial", 9, "bold")).place(x=300, y=200)
 
 menu_inicial.mainloop()

@@ -1,66 +1,38 @@
+# Nome do arquivo:
+# Equipe: Clara, Rayanne e Tainá 
+# Turma: G91164
+# Semestre: 2025.1
+
 from tkinter import *
-import tkinter.messagebox as messagebox 
-import tkinter as tk
-
-def abrir_tela(modulo, classe=None):
-    try:
-        janela = Toplevel(menu_principal) 
-        janela.title(f"Tela de {modulo}") 
-        janela.geometry("800x600+350+100") 
-        janela.resizable(True, True) 
-        janela['bg'] = "#f0f0f0" 
-
-        if classe:
-            modulo_carregado = __import__(modulo)
-            TelaClasse = getattr(modulo_carregado, classe)
-            tela_instancia = TelaClasse(janela)
-        else:
-            __import__(modulo)
-            messagebox.showinfo("Informação", f"Módulo '{modulo}' importado, mas nenhuma classe foi especificada para instanciar.")
-
-    except ImportError:
-        messagebox.showerror("Erro de Importação", f"Não foi possível encontrar o módulo '{modulo}.py'. Certifique-se de que o arquivo existe e está no mesmo diretório.")
-    except AttributeError:
-        messagebox.showerror("Erro de Atributo", f"A classe '{classe}' não foi encontrada no módulo '{modulo}.py'.")
-    except Exception as e:
-        messagebox.showerror("Erro", f"Ocorreu um erro ao abrir a tela: {e}")
 
 def abrir_clientes():
-    abrir_tela("TELA_Clientes", "ClientesScreen")
-
+    import TELA_Clientes
 def abrir_funcionarios():
-    abrir_tela("TELA_Funcionarios", "FuncionariosScreen")
-
+    import TELA_Funcionários
 def abrir_caminhoes():
-    abrir_tela("TELA_Caminhoes", "CaminhoesScreen")
-
+    import TELA_Caminhões
 def abrir_contatos():
-    abrir_tela("TELA_Contatos", "ContatosScreen")
-
+    import TELA_Contatos
 def abrir_entrada_saida():
-    abrir_tela("TELA_Entrada_Saida", "EntradaSaidaScreen")
-
+    import TELA_Entrada_Saida
 def abrir_sensores():
-    abrir_tela("TELA_Sensores", "SensoresScreen")
-
+    import TELA_Sensores
 def abrir_enderecos():
-    abrir_tela("TELA_Endereco", "EnderecoScreen")
-
+    import TELA_Endereco
 def abrir_produtos():
-    abrir_tela("TELA_Produtos", "ProdutosScreen")
-
+    import TELA_Produtos
 def abrir_fornecedor():
-    abrir_tela("TELA_Fornecedores", "FornecedoresScreen")
-
+    import TELA_Fornecedores
 def abrir_manutencao():
-    abrir_tela("TELA_Manutencao", "ManutencaoScreen")
+    import TELA_Manutencao
 
 menu_principal = Tk()
 menu_principal.title("Página Principal")
-menu_principal.geometry("700x600+300+50")
-menu_principal.resizable(False, False) 
+menu_principal.geometry("600x600+600+150")
+menu_principal.resizable(False, False)
 menu_principal['bg'] = "white"
 
+# Canvas e Scrollbar
 canvas = Canvas(menu_principal, bg="white", highlightthickness=0)
 scrollbar = Scrollbar(menu_principal, orient="vertical", command=canvas.yview)
 scrollable_frame = Frame(canvas, bg="white")
@@ -75,52 +47,21 @@ scrollable_frame.bind(
 canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
 canvas.configure(yscrollcommand=scrollbar.set)
 
+canvas.config(width=340)
 canvas.pack(side="left", fill="both", expand=True)
 scrollbar.pack(side="right", fill="y")
 
-Label(
-    scrollable_frame,
-    text="Sistema Principal",
-    bg="white",
-    font=("Arial", 28, "bold")
-).grid(row=0, column=0, columnspan=5, pady=40) 
+Label(scrollable_frame, text="Sistema Principal", bg="white", font=("Arial", 18, "bold")).pack(pady=30)
 
-botoes = [
-    ("Clientes", abrir_clientes),
-    ("Funcionários", abrir_funcionarios),
-    ("Caminhões", abrir_caminhoes),
-    ("Contatos", abrir_contatos),
-    ("Entrada/Saída", abrir_entrada_saida),
-    ("Sensores", abrir_sensores),
-    ("Endereços", abrir_enderecos),
-    ("Produtos", abrir_produtos),
-    ("Fornecedores", abrir_fornecedor),
-    ("Manutenção", abrir_manutencao),
-]
-
-for i, (texto, comando) in enumerate(botoes):
-    row = (i // 3) + 1 # 
-    col = (i % 3) + 1 
-    Button(
-        scrollable_frame,
-        text=texto,
-        width=15,
-        height=3,
-        font=("Helvetica", 14, "bold"),
-        command=comando,
-        bg="#E0E7DE",
-        fg="black", 
-        activebackground="#000000", 
-        activeforeground="black", 
-        bd=8, 
-        relief= tk.RAISED, 
-        cursor="hand2" 
-    ).grid(row=row, column=col, padx=15, pady=15, sticky="nsew") 
-
-scrollable_frame.grid_columnconfigure(0, weight=1) 
-scrollable_frame.grid_columnconfigure(1, weight=1)
-scrollable_frame.grid_columnconfigure(2, weight=1) 
-scrollable_frame.grid_columnconfigure(3, weight=1) 
-scrollable_frame.grid_columnconfigure(4, weight=1) 
+Button(scrollable_frame, text="Clientes", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_clientes).pack(pady=10)
+Button(scrollable_frame, text="Funcionários", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_funcionarios).pack(pady=10)
+Button(scrollable_frame, text="Caminhões", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_caminhoes).pack(pady=10)
+Button(scrollable_frame, text="Contatos", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_contatos).pack(pady=10)
+Button(scrollable_frame, text="Entrada/Saída", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_entrada_saida).pack(pady=10)
+Button(scrollable_frame, text="Sensores", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_sensores).pack(pady=10)
+Button(scrollable_frame, text="Endereços", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_enderecos).pack(pady=10)
+Button(scrollable_frame, text="Produtos", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_produtos).pack(pady=10)
+Button(scrollable_frame, text="Fornecedores", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_fornecedor).pack(pady=10)
+Button(scrollable_frame, text="Manutenção", width=20, height=2, font=("Arial", 12, "bold"), command=abrir_manutencao).pack(pady=10)
 
 menu_principal.mainloop()

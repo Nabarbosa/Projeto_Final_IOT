@@ -1,10 +1,6 @@
-# Nome do arquivo:
-# Equipe: Clara, Rayanne e Tainá 
-# Turma: G91164
-# Semestre: 2025.1
-
 from tkinter import *
 from tkinter import PhotoImage
+import tkinter as tk
 
 menu_inicial = Tk()
 menu_inicial.title ("Sistema de Caminhões")
